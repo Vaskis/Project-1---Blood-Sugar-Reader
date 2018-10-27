@@ -56,8 +56,8 @@ int main() {
 	// Max		Day[0][0]	Day[0][k]	Day[0][13]
 	// Min		Day[1][0]	Day[1][k]	Day[1][13]
 	// Count	Day[2][0]	Day[2][k]	Day[2][13]
-	// SumRem		Day[3][0]	Day[3][k]	Day[3][13]
-	// SumOvF		Day[4][0]	Day[4][k]	Day[4][13]
+	// SumRem	Day[3][0]	Day[3][k]	Day[3][13]
+	// SumOvF	Day[4][0]	Day[4][k]	Day[4][13]
 
 	// Week Array - 2D
 	const int WeekRows = 7;
@@ -66,13 +66,13 @@ int main() {
 	// Array Format:
 	//
 	//				Week 1		Week j		Week 2
-	// Max			Week[0][0]	Week[0][1]	Week[0][1]
-	// Min			Week[1][0]	Week[1][1]	Week[1][1]
-	// Count		Week[2][0]	Week[2][1]	Week[2][1]
-	// SumRem		Week[3][0]	Week[3][1]	Week[3][1]
-	// SumOvF		Week[4][0]	Week[4][1]	Week[4][1]
-	// Delta		Week[5][0]	Week[5][1]	Week[5][1]
-	// DayOfDelta	Week[6][0]	Week[6][1]	Week[6][1]
+	// Max			Week[0][0]	Week[0][j]	Week[0][1]
+	// Min			Week[1][0]	Week[1][j]	Week[1][1]
+	// Count		Week[2][0]	Week[2][j]	Week[2][1]
+	// SumRem		Week[3][0]	Week[3][j]	Week[3][1]
+	// SumOvF		Week[4][0]	Week[4][j]	Week[4][1]
+	// Delta		Week[5][0]	Week[5][j]	Week[5][1]
+	// DayOfDelta	Week[6][0]	Week[6][j]	Week[6][1]
 
 	// Rows that Particular Data is in (Makes Reading/Manipulation easier)
 	const int Max = 0;
@@ -212,9 +212,9 @@ int main() {
 				cout << "\tDay:\t"		<< setw(4) << k + 1 << endl;
 				cout << "\tMax:\t"		<< setw(4) << Day[Max][k]		<< endl;
 				cout << "\tMin:\t"		<< setw(4) << Day[Min][k]		<< endl;
-				cout << "\tCount:\t"		<< setw(4) << Day[Count][k]		<< endl;
-				cout << "\tSumRem:\t"		<< setw(4) << Day[Sum][k]		<< endl;
-				cout << "\tSumOvF:\t"		<< setw(4) << Day[SumOvF][k]	<< endl;
+				cout << "\tCount:\t"	<< setw(4) << Day[Count][k]		<< endl;
+				cout << "\tSumRem:\t"	<< setw(4) << Day[Sum][k]		<< endl;
+				cout << "\tSumOvF:\t"	<< setw(4) << Day[SumOvF][k]	<< endl;
 				cout << endl;
 				ValidInput = false;	// Reset Flag
 				Data = 0;			// Reset Data
@@ -227,10 +227,10 @@ int main() {
 				cout << "\tWeek:\t\t"		<< setw(4) << j + 1 << endl;
 				cout << "\tMax:\t\t"		<< setw(4) << Week[Max][j]		<< endl;
 				cout << "\tMin:\t\t"		<< setw(4) << Week[Min][j]		<< endl;
-				cout << "\tCount:\t\t"	<< setw(4) << Week[Count][j]	<< endl;
-				cout << "\tSumRem:\t\t"	<< setw(4) << Week[Sum][j]		<< endl;
-				cout << "\tSumOvF:\t\t"	<< setw(4) << Week[SumOvF][j]	<< endl;
-				cout << "\tDelta:\t\t"	<< setw(4) << Week[Delta][j]	<< endl;
+				cout << "\tCount:\t\t"		<< setw(4) << Week[Count][j]	<< endl;
+				cout << "\tSumRem:\t\t"		<< setw(4) << Week[Sum][j]		<< endl;
+				cout << "\tSumOvF:\t\t"		<< setw(4) << Week[SumOvF][j]	<< endl;
+				cout << "\tDelta:\t\t"		<< setw(4) << Week[Delta][j]	<< endl;
 				cout << "\tDayOfDelta:\t"	<< setw(4) << Week[DayOfDelta][j] << endl;
 				cout << endl;
 				ValidInput = false;	// Reset Flag
@@ -268,7 +268,7 @@ int main() {
 				Day[Max][k] = Data;					// Max Update
 			}
 			if ((Data < Day[Min][k]) | (Day[Min][k] == 0)) {
-				Day[Min][k] = (Data);				// Min Update
+				Day[Min][k] = Data;					// Min Update
 			}
 
 			Day[Count][k] = Day[Count][k] + 1;		// Count Update
@@ -422,7 +422,9 @@ int main() {
 		cout << endl;
 	}
 
-	cout << endl << "Congratulations, your heart has not exploded... yet..." << endl << endl;
+	// Easter Egg Output
+	cout << endl << "Congratulations, you made it this far." << endl;
+	cout << "You deserve a glazed, sprinkled, jelly-filled donut." << endl << endl;
 
 	system("pause");
 
